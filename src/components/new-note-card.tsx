@@ -61,12 +61,28 @@ export const NewNoteCard = ({ onNoteCreated }: newNoteCardProps) => {
     speechRecognition.maxAlternatives = 1;
     speechRecognition.interimResults = true;
 
-    speechRecognition.onresult = (event) => {
-      const transcription = Array.from(event.results).reduce((text, result) => {
-        return text.concat(result[0].transcript);
-      }, "");
+    let accumulatedTranscription = "";
 
-      setContent(transcription);
+    speechRecognition.onresult = (event) => {
+      let interimTranscription = "";
+
+      // Iterate through the results
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        // Concatenate the transcriptions from each result
+        interimTranscription += event.results[i][0].transcript;
+      }
+
+      // Check if the result is final
+      if (event.results[event.results.length - 1].isFinal) {
+        // Concatenate the final transcription
+        accumulatedTranscription += interimTranscription;
+
+        // Set the content with the accumulated transcription
+        setContent(accumulatedTranscription);
+
+        // Reset interimTranscription for the next speech input
+        interimTranscription = "";
+      }
     };
 
     speechRecognition.onerror = (event) => {
