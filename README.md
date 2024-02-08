@@ -30,27 +30,30 @@ Install dependencies:
 Start the development server:
 
     npm run dev
-    This command uses Vite to start the development server.
-    Open your browser and go to http://localhost:**** to view the app.
+    
+This command uses Vite to start the development server.
+Open your browser and go to http://localhost:**** to view the app.
 
 Build
 
 To build the project for production, run the following command:
 
     npm run build
-    This command uses TypeScript (tsc) to compile the TypeScript files and Vite to build the production-ready assets.
+    
+This command uses TypeScript (tsc) to compile the TypeScript files and Vite to build the production-ready assets.
     
 Preview
 
 To preview the production build locally, run the following command:
 
     npm run preview
-    This command uses Vite to serve the production build locally for testing before deployment.
+    
+This command uses Vite to serve the production build locally for testing before deployment.
 
 Technologies Used
 
-    ReactJS: A JavaScript library for building user interfaces.
-    Tailwind CSS: A utility-first CSS framework for rapid UI development.
+ReactJS: A JavaScript library for building user interfaces.
+Tailwind CSS: A utility-first CSS framework for rapid UI development.
     
 
 Special thanks to the NLW team for the inspiration and guidance during the development of this project.
